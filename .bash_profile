@@ -1,0 +1,1 @@
+/Users/DaigoOUE/dotfiles/.bash_profile
