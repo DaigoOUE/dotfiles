@@ -4,3 +4,4 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
     source ~/.bashrc
   fi
 fi
+eval "$(rbenv init -)"
