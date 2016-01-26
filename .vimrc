@@ -3,9 +3,16 @@ execute pathogen#infect()
 
 "neobundle
 if has('vim_starting')
+  set nocompatible
+  if !isdirectory(expand("~/dotfiles/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/.vim/bundle/neobundle.vim")
+  endif
   set runtimepath+=~/dotfiles/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/dotfiles/.vim/bundle/'))
+let g:neobundle_default_git_protocol='https'
+
 NeoBundle 'Shougo/unite.vim'
 
 "ruby
