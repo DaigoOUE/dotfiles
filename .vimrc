@@ -15,6 +15,10 @@ let g:neobundle_default_git_protocol='https'
 
 NeoBundle 'Shougo/unite.vim'
 
+"LaTeX
+NeoBundle 'lervag/vimtex'
+NeoBundle 'thinca/vim-quickrun'
+
 "ruby
 "コード補完
 NeoBundle 'Shougo/neocomplete.vim'

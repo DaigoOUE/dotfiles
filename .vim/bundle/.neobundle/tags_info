@@ -4,6 +4,8 @@ rsense
 syntastic
 unite.vim
 vim-endwise
+vim-quickrun
 vim-ref
 vim-ref-ri
 vim-tags
+vimtex
