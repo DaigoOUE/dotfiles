@@ -1,6 +1,7 @@
 neocomplete-rsense.vim
 neocomplete.vim
 rsense
+shabadou.vim
 syntastic
 unite.vim
 vim-endwise
