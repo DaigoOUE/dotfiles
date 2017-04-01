@@ -1,10 +1,11 @@
-neocomplete-rsense.vim
 neocomplete.vim
 rsense
 syntastic
 unite.vim
 vim-endwise
-vim-latex.vim
+vim-latex
+vim-quickrun
 vim-ref
 vim-ref-ri
 vim-tags
+vimtex
