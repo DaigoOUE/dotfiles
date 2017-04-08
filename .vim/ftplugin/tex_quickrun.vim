@@ -1,4 +1,3 @@
-" LaTeX Quickrun
 let g:quickrun_config['tex'] = {
       \ 'command' : 'latexmk',
       \ 'outputter' : 'error',
@@ -64,3 +63,5 @@ vnoremap <silent><buffer> <F5> :QuickRun -mode v -type tmptex<CR>
 nnoremap <silent><F5> :QuickRun<CR>
 
 autocmd BufWritePost,FileWritePost *.tex QuickRun tex
+
+
