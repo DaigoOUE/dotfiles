@@ -1,8 +1,12 @@
-sudo: false
+language: ruby
+
+before_install:
+  - sudo add-apt-repository -y ppa:nmi/vim-snapshots
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install vim
 
 before_script:
-    - git clone https://github.com/syngan/vim-vimlint /tmp/vim-vimlint
-    - git clone https://github.com/ynkdir/vim-vimlparser /tmp/vim-vimlparser
+  git clone https://github.com/junegunn/vader.vim.git test/vader/vader.vim
 
-script:
-    - sh /tmp/vim-vimlint/bin/vimlint.sh -l /tmp/vim-vimlint -p /tmp/vim-vimlparser -e EVL103=1 -e EVL102.l:_=1 autoload
+script: test/vader/run
+

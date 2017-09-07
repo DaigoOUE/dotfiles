@@ -37,11 +37,13 @@ if dein#load_state(expand("~/dotfiles/.vim/dein"))
   call dein#add('othree/html5.vim')
   call dein#add('pangloss/vim-javascript')
 
+  "gnuplot
+  call dein#add('vim-scripts/gnuplot.vim')
+
   "Color
   call dein#add('itchyny/lightline.vim')
   call dein#add('nanotech/jellybeans.vim')
   call dein#add('KeyboardFire/hotdog.vim')
-
   
   call dein#end()
   call dein#save_state()
