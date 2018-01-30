@@ -5,3 +5,5 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
   fi
 fi
 eval "$(rbenv init -)"
+ 
+export PATH="/usr/local/sbin:$PATH"
