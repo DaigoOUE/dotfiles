@@ -150,9 +150,9 @@ let s:envs_enditem = s:envs_item . '\|' . s:envs_endlist
 " }}}1
 function! s:indent_delims(line, lnum, prev_line, prev_lnum) abort " {{{1
   return s:sw*(  max([  s:count(a:prev_line, s:re_open)
-        \            - s:count(a:prev_line, s:re_close), 0])
-        \     - max([  s:count(a:line, s:re_close)
-        \            - s:count(a:line, s:re_open), 0]))
+        \             - s:count(a:prev_line, s:re_close), 0])
+        \      - max([  s:count(a:line, s:re_close)
+        \             - s:count(a:line, s:re_open), 0]))
 endfunction
 
 let s:re_open = join([
@@ -217,5 +217,3 @@ endfunction
 
 let &cpoptions = s:cpo_save
 unlet s:cpo_save
-
-" vim: fdm=marker sw=2

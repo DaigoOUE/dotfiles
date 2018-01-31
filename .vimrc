@@ -269,3 +269,5 @@ set ruler
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 set noshowmode
+"折り返しなし
+set wrap

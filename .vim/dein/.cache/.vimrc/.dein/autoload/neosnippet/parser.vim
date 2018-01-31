@@ -13,6 +13,10 @@ function! neosnippet#parser#_parse_snippets(filename) abort
     return {}
   endif
 
+  if neosnippet#util#is_sudo()
+    return s:parse(a:filename)[0]
+  endif
+
   let cache_dir = neosnippet#variables#data_dir()
   let snippets = {}
   if !s:Cache.check_old_cache(cache_dir, a:filename)
@@ -24,7 +28,7 @@ function! neosnippet#parser#_parse_snippets(filename) abort
   endif
   if empty(snippets) || s:Cache.check_old_cache(cache_dir, a:filename)
     let [snippets, sourced] = s:parse(a:filename)
-    if len(snippets) > 5 && !neosnippet#util#is_sudo() && !sourced
+    if len(snippets) > 5 && !sourced
       call s:Cache.writefile(
             \ cache_dir, a:filename,
             \ [neosnippet#helpers#vim2json(snippets)])
@@ -232,8 +236,7 @@ endfunction
 
 function! neosnippet#parser#_initialize_snippet(dict, path, line, pattern, name) abort
   let a:dict.word = substitute(a:dict.word, '\n\+$', '', '')
-  if a:dict.word !~ '\n'
-        \ && a:dict.word !~
+  if a:dict.word !~
         \    neosnippet#get_placeholder_marker_substitute_pattern().'$'
         \ && a:dict.word !~
         \    neosnippet#get_placeholder_marker_substitute_zero_pattern()

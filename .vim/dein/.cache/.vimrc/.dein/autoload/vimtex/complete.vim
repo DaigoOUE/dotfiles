@@ -375,6 +375,7 @@ let s:completer_cmd = {
       \ ],
       \ 'candidates_from_packages' : [],
       \ 'candidates_from_newcommands' : [],
+      \ 'candidates_from_lets' : [],
       \ 'complete_dir' : fnamemodify(expand('<sfile>'), ':r') . '/',
       \ 'inside_braces' : 0,
       \}
@@ -392,10 +393,12 @@ endfunction
 function! s:completer_cmd.gather_candidates() dict " {{{2
   call self.gather_candidates_from_packages()
   call self.gather_candidates_from_newcommands()
+  call self.gather_candidates_from_lets()
 
   return vimtex#util#uniq_unsorted(
-        \   copy(self.candidates_from_packages)
-        \ + copy(self.candidates_from_newcommands))
+        \   copy(self.candidates_from_newcommands)
+        \ + copy(self.candidates_from_lets)
+        \ + copy(self.candidates_from_packages))
 endfunction
 
 function! s:completer_cmd.gather_candidates_from_packages() dict " {{{2
@@ -461,6 +464,28 @@ function! s:completer_cmd.gather_candidates_from_newcommands() dict " {{{2
         \ }')
 
   let self.candidates_from_newcommands = l:candidates
+endfunction
+
+function! s:completer_cmd.gather_candidates_from_lets() dict " {{{2
+  let l:preamble = vimtex#parser#tex(b:vimtex.tex, {
+        \ 're_stop': '\\begin{document}',
+        \ 'detailed': 0,
+        \})
+
+  let l:lets = filter(copy(l:preamble), 'v:val =~# ''\\let\>''')
+  let l:defs = filter(copy(l:preamble), 'v:val =~# ''\\def\>''')
+  let l:candidates = map(l:lets, '{
+        \ ''word'' : matchstr(v:val, ''\\let[^\\]*\\\zs\w*''),
+        \ ''mode'' : ''.'',
+        \ ''menu'' : ''[cmd: \let]'',
+        \ }')
+        \ + map(l:defs, '{
+        \ ''word'' : matchstr(v:val, ''\\def[^\\]*\\\zs\w*''),
+        \ ''mode'' : ''.'',
+        \ ''menu'' : ''[cmd: \def]'',
+        \ }')
+
+  let self.candidates_from_lets = l:candidates
 endfunction
 
 " }}}1
@@ -597,6 +622,13 @@ endfunction
 let s:completer_gls = {
       \ 'patterns' : ['\v\\(gls|Gls|GLS)(pl)?\s*\{[^}]*$'],
       \ 'candidates' : [],
+      \ 'key' : {
+      \   'newglossaryentry' : ' [gls]',
+      \   'longnewglossaryentry' : ' [gls]',
+      \   'newacronym' : ' [acr]',
+      \   'newabbreviation' : ' [abbr]',
+      \   'glsxtrnewsymbol' : ' [symbol]',
+      \ },
       \}
 
 function! s:completer_gls.complete(regex) dict " {{{2
@@ -608,15 +640,19 @@ endfunction
 function! s:completer_gls.parse_glossaries() dict " {{{2
   let self.candidates = []
 
+  let l:re_input = g:vimtex#re#tex_input . '|^\s*\\loadglsentries'
+  let l:re_commands = '\v\\(' . join(keys(self.key), '|') . ')'
+  let l:re_matcher = l:re_commands . '\s*%(\[.*\])=\s*\{([^{}]*)'
+
   for l:line in filter(vimtex#parser#tex(b:vimtex.tex, {
         \   'detailed' : 0,
-        \   'input_re' : g:vimtex#re#tex_input . '|^\s*\\loadglsentries',
-        \ }), 'v:val =~# ''\\newglossaryentry''')
-    let l:entries = matchstr(l:line, '\\newglossaryentry\s*{\zs[^{}]*')
+        \   'input_re' : l:re_input,
+        \ }), 'v:val =~# l:re_commands')
+    let l:matches = matchlist(l:line, l:re_matcher)
     call add(self.candidates, {
-          \ 'word' : l:entries,
-          \ 'abbr' : l:entries,
-          \ 'menu' : ' [gls]',
+          \ 'word' : l:matches[2],
+          \ 'abbr' : l:matches[2],
+          \ 'menu' : self.key[l:matches[1]],
           \})
   endfor
 
@@ -823,5 +859,3 @@ let s:completers = map(
       \ 'v:val[1]')
 
 " }}}1
-
-" vim: fdm=marker sw=2

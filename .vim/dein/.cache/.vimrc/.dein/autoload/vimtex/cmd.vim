@@ -145,10 +145,9 @@ function! vimtex#cmd#create_ask(visualmode) " {{{1
     let l:pos_start = getpos("'<")
     let l:pos_end = getpos("'>")
 
+    normal! `>a}
     normal! `<
     execute 'normal! i\' . l:cmd . '{'
-    normal! `>
-    execute 'normal! ' . (strlen(l:cmd) + 2) . 'la}'
 
     let l:pos_end[2] += 1
     if l:pos_end[1] == l:pos_start[1]
@@ -162,7 +161,7 @@ function! vimtex#cmd#create_ask(visualmode) " {{{1
     let l:pos[2] += strlen(l:cmd) + 2
     execute 'normal! ciw\' . l:cmd . '{"}'
     silent! call repeat#set(
-          \ "\<plug>(vimtex-cmd-create-ask)" . l:cmd . '', v:count)
+          \ "\<plug>(vimtex-cmd-create)" . l:cmd . '', v:count)
     call setreg('"', l:save_reg)
     call vimtex#pos#set_cursor(l:pos)
   endif
@@ -349,5 +348,3 @@ function! s:text_between(p1, p2, ...) " {{{1
 endfunction
 
 " }}}1
-
-" vim: fdm=marker sw=2

@@ -1,145 +1,97 @@
-jellybeans.vim
-==============
+surround.vim
+============
 
-A colorful, dark color scheme, inspired by [ir_black][] and [twilight][].
+Surround.vim is all about "surroundings": parentheses, brackets, quotes,
+XML tags, and more.  The plugin provides mappings to easily delete,
+change and add such surroundings in pairs.
 
-Designed primarily for a graphical Vim, but includes support for 256, 88, 16,
-and 8 color terminals. On a 16 or 8 color terminal, replace its colors with
-those in `ansi-term-colors.txt` for best results.
+It's easiest to explain with examples.  Press `cs"'` inside
 
-This script is [vimscript #2555][vimscript] at Vim.org.
+    "Hello world!"
 
-Scroll down for [screenshots][ss-anchor]!
+to change it to
 
-## Options
+    'Hello world!'
 
-### Custom Highlights
+Now press `cs'<q>` to change it to
 
-If you prefer slightly different colors from what Jellybeans defines,
-you can set `g:jellybeans_overrides` in your .vimrc to a dictionary of
-custom highlighting parameters:
+    <q>Hello world!</q>
 
-    let g:jellybeans_overrides = {
-    \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-    \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-    \              'attr': 'bold' },
-    \    'Comment': { 'guifg': 'cccccc' },
-    \}
+To go full circle, press `cst"` to get
 
-This removes the need to edit Jellybeans directly, simplifying
-upgrades. In addition, RGB colors specified this way are run through
-the same color approximation algorithm that the core theme uses, so
-your colors work just as well in 256-color terminals.
+    "Hello world!"
 
-If you can pick better colors than the approximator, specify them
-in the `256ctermfg` and `256ctermbg` parameters to override
-its choices.
+To remove the delimiters entirely, press `ds"`.
 
-#### Custom Background Colors
+    Hello world!
 
-To set a custom background color, override the special
-`background` highlight group:
+Now with the cursor on "Hello", press `ysiw]` (`iw` is a text object).
 
-    let g:jellybeans_overrides = {
-    \    'background': { 'guibg': '000000' },
-    \}
+    [Hello] world!
 
-Jellybeans uses the background color in multiple highlight
-groups. Using the special `background` group overrides them all
-at once.
+Let's make that braces and add some space (use `}` instead of `{` for no
+space): `cs]{`
 
-This replaces `g:jellybeans_background_color` and
-`g:jellybeans_background_color_256` from Jellybeans versions
-before 1.6.
+    { Hello } world!
 
-#### Terminal Background
+Now wrap the entire line in parentheses with `yssb` or `yss)`.
 
-If you would prefer to use your terminal's default background
-(e.g. for transparent backgrounds, image backgrounds, or a
-different color) instead of the background color that Jellybeans
-applies, use this `background` override:
+    ({ Hello } world!)
 
-    let g:jellybeans_overrides = {
-    \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-    \}
+Revert to the original text: `ds{ds)`
 
-#### `MatchParen` Colors
+    Hello world!
 
-Jellybeans sets alternate `MatchParen` colors (magenta on black)
-in some terminals to be more readable out of the box:
+Emphasize hello: `ysiw<em>`
 
-- Apple's Terminal.app has default themes with cursor colors
-  that are too close in brightness to Jellybeans' preferred
-  `MatchParen` background color of `#556779` to be
-  clearly distinguishable.
-- Default 16-color terminal palettes don't typically have a
-  color available that can approximate the preferred
-  `MatchParen` background color.
+    <em>Hello</em> world!
 
-If you use Terminal.app with a brighter cursor color, you can
-use the standard `MatchParen` colors with this override:
+Finally, let's try out visual mode. Press a capital V (for linewise
+visual mode) followed by `S<p class="important">`.
 
-    let g:jellybeans_overrides = {
-    \    'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
-    \}
+    <p class="important">
+      <em>Hello</em> world!
+    </p>
 
-To use the standard `MatchParen` colors in a 16-color terminal,
-configure Low-Color Black as [described in the section
-below](#low-color-black-16-and-8-color-terminals).
+This plugin is very powerful for HTML and XML editing, a niche which
+currently seems underfilled in Vim land.  (As opposed to HTML/XML
+*inserting*, for which many plugins are available).  Adding, changing,
+and removing pairs of tags simultaneously is a breeze.
 
-If you prefer the alternate `MatchParen` colors, you can use them
-everywhere with
+The `.` command will work with `ds`, `cs`, and `yss` if you install
+[repeat.vim](https://github.com/tpope/vim-repeat).
 
-    let g:jellybeans_overrides = {
-    \    'MatchParen': { 'guifg': 'dd0093', 'guibg': '000000',
-    \                    'ctermfg': 'Magenta', 'ctermbg': '' },
-    \}
+Installation
+------------
 
-*Added in version 1.7 (unreleased).*
+If you don't have a preferred installation method, I recommend
+installing [pathogen.vim](https://github.com/tpope/vim-pathogen), and
+then simply copy and paste:
 
-### Italics
+    cd ~/.vim/bundle
+    git clone git://github.com/tpope/vim-surround.git
 
-Jellybeans disables italics in terminal Vim by default, as some
-terminals do other things with the text's colors instead of
-actually italicizing the text. If your terminal does fully
-support italics, add
+Once help tags have been generated, you can view the manual with
+`:help surround`.
 
-    let g:jellybeans_use_term_italics = 1
+Contributing
+------------
 
-to your .vimrc to enable italics in terminal Vim.
+See the contribution guidelines for
+[pathogen.vim](https://github.com/tpope/vim-pathogen#readme).
 
-If you don't want italics even in GUI Vim, add
+Self-Promotion
+--------------
 
-    let g:jellybeans_use_gui_italics = 0
+Like surround.vim? Follow the repository on
+[GitHub](https://github.com/tpope/vim-surround) and vote for it on
+[vim.org](http://www.vim.org/scripts/script.php?script_id=1697).  And if
+you're feeling especially charitable, follow [tpope](http://tpo.pe/) on
+[Twitter](http://twitter.com/tpope) and
+[GitHub](https://github.com/tpope).
 
-### Low-Color Black (16 and 8 color terminals)
+License
+-------
 
-Since the background on a dark terminal is usually black already,
-Jellybeans can appropriate the black ANSI color as a dark grey and
-use no color when it really wants black.
-
-After changing your terminal’s color palette (`#444444` is
-suggested), add this to your .vimrc:
-
-    let g:jellybeans_use_lowcolor_black = 1
-
-*This option was changed to be disabled by default in version
-1.7 (unreleased).*
-
-## Screenshots
-
-![][preview-ss]
-
-The font in the screenshot is 10pt [Monaco][monaco]:
-
-```vim
-set guifont=Monaco:h10 noanti
-```
-
-
-[ir_black]: https://web.archive.org/web/20140211124943/http://toddwerth.com/2008/01/25/a-black-os-x-leopard-terminal-theme-that-is-actually-readable/
-[twilight]: http://www.vim.org/scripts/script.php?script_id=1677
-[vimscript]: http://www.vim.org/scripts/script.php?script_id=2555
-[preview-ss]: https://nanotech.nanotechcorp.net/downloads/jellybeans-preview.png
-[ss-anchor]: #screenshots
-[monaco]: https://en.wikipedia.org/wiki/Monaco_(typeface)
+Copyright (c) Tim Pope.  Distributed under the same terms as Vim itself.
+See `:help license`.
