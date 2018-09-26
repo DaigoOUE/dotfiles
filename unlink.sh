@@ -7,3 +7,4 @@ unlink  ~/.vim
 unlink  ~/.gitconfig
 unlink  ~/.gitignore_global
 unlink  ~/.latexmkrc
+unlink  ~/.cache

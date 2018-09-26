@@ -7,10 +7,12 @@ scriptencoding utf-8
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state(expand("~/dotfiles/.vim/dein"))
-  call dein#begin(expand("~/dotfiles/.vim/dein"))
+if dein#load_state(expand("~/.cache/dein"))
+  call dein#begin(expand("~/.cache/dein"))
+
+  call dein#add(expand("~/.cache/dein"))
 
   "コード補完
   call dein#add('Shougo/neocomplete.vim')
@@ -241,6 +243,7 @@ endfunction
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+
 
 "-------------------------------
 "setting
