@@ -34,7 +34,7 @@ if dein#load_state(expand("~/.cache/dein"))
   "HTML, CSS, Javascript
   call dein#add('mattn/emmet-vim')
   call dein#add('tpope/vim-surround')
-  call dein#add('open-browser.vim')
+  call dein#add('vim-scripts/open-browser.vim')
   call dein#add('hail2u/vim-css3-syntax')
   call dein#add('othree/html5.vim')
   call dein#add('pangloss/vim-javascript')
