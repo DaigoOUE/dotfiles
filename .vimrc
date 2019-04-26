@@ -268,6 +268,11 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+"-------------------------------
+"Unite outline
+"-------------------------------
+|| let g:unite_split_rule = 'botright' noremap ,u :Unite -vertical -winwidth=40 outline ||<
+
 
 "-------------------------------
 "setting

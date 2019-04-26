@@ -1,6 +1,6 @@
 [user]
-	name = DaigoOUE
-	email = poiuyt0098@gmail.com
+	name = Daigo Oue
+	email = daigo.oue@gmail.com
 [color]
 	ui = auto
 [core]
@@ -9,5 +9,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/daigooue/.stCommitMsg
