@@ -183,7 +183,7 @@ augroup END
 "-------------------------------
 " open-browser.vim 
 "-------------------------------
-" カーソル下のURLをブラウザで開く
+"" カーソル下のURLをブラウザで開く
 nmap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
@@ -269,9 +269,10 @@ function! LightlineMode()
 endfunction
 
 "-------------------------------
-"Unite outline
+"Unite-outline
 "-------------------------------
-|| let g:unite_split_rule = 'botright' noremap ,u :Unite -vertical -winwidth=40 outline ||<
+let g:unite_split_rule = 'botright' 
+noremap <Space>u :<C-u>Unite<space>-vertical<space>-winwidth=40<space>outline<CR>
 
 
 "-------------------------------
