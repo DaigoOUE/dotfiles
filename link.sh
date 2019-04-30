@@ -9,3 +9,8 @@ ln -s ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ../
+rm -rf fonts
