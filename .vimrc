@@ -7,7 +7,7 @@ scriptencoding utf-8
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(expand("~/.cache/dein"))
   call dein#begin(expand("~/.cache/dein"))

@@ -1,1 +1,0 @@
-{'sqrt', 'xrange', 'yrange', 'size', 'square', 'isosamples', 'contour', 'base', 'cntrparam', 'levels', 'discrete', 'nosurface', 'table', 'dispersion1', 'splot', 'dispersion2', 'unset', 'term', 'aqua', 'plot', 'with', 'lines', 'notitle'}
