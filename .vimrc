@@ -7,7 +7,7 @@ scriptencoding utf-8
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(expand("~/.cache/dein"))
   call dein#begin(expand("~/.cache/dein"))
@@ -29,6 +29,10 @@ if dein#load_state(expand("~/.cache/dein"))
   "TeX
   call dein#add('lervag/vimtex')
   call dein#add('thinca/vim-quickrun')
+
+  "Markdown
+  call dein#add('plasticboy/vim-markdown')
+  call dein#add('previm/previm')
 
 
   "HTML, CSS, Javascript
@@ -82,6 +86,8 @@ endif
 "-------------------------------
 "TeX
 "-------------------------------
+"Preview
+let g:vimtex_view_general_viewer = 'evince'
 
 "quickrun
 let g:quickrun_config = {
@@ -136,6 +142,13 @@ let g:neocomplete#sources#omni#input_patterns.tex =
         \ . '|documentclass%(\s*\[[^]]*\])?\s*\{[^}]*'
         \ . ')'
 
+"-------------------------------
+"Markdown
+"-------------------------------
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+let g:vim_markdown_math = 1
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 
 "-------------------------------
 "HTML 5 tags

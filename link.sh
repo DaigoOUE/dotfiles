@@ -7,4 +7,10 @@ ln -s ~/dotfiles/.vim ~/.vim
 ln -s ~/dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
-ln -s ~/dotfiles/.cache ~/.cache
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ../
+rm -rf fonts
