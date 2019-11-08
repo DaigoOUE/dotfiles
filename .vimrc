@@ -44,7 +44,7 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('pangloss/vim-javascript')
 
   "gnuplot
-  call dein#add('vim-scripts/gnuplot.vim')
+  call dein#add('vim-scripts/gnuplot-syntax-highlighting')
 
   "Color
   call dein#add('itchyny/lightline.vim')
