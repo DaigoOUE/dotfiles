@@ -50,6 +50,9 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('itchyny/lightline.vim')
   call dein#add('nanotech/jellybeans.vim')
   call dein#add('KeyboardFire/hotdog.vim')
+
+  "Autosave
+  call dein#add('907th/vim-auto-save')
   
   call dein#end()
   call dein#save_state()
@@ -88,18 +91,6 @@ endif
 "-------------------------------
 "Preview
 let g:vimtex_view_general_viewer = 'evince'
-
-"quickrun
-let g:quickrun_config = {
-\   "_" :{
-\         "runner" : "vimproc",
-\         "runner/vimproc/updatetime" : 60
-\         },
-\   'tex': {
-\       'command': 'latexmk',
-\       'exec': ['%c -gg -pdfdvi %s', 'open %s:r.pdf']
-\   },
-\}
 
 let g:tex_conceal=''
 
@@ -286,6 +277,12 @@ endfunction
 "-------------------------------
 let g:unite_split_rule = 'botright' 
 noremap <Space>u :<C-u>Unite<space>-vertical<space>-winwidth=40<space>outline<CR>
+
+"-------------------------------
+" Auto save
+"-------------------------------
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 
 "-------------------------------
