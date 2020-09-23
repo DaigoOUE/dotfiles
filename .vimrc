@@ -4,9 +4,6 @@ scriptencoding utf-8
 "-------------------------------
 "dein
 "-------------------------------
-if &compatible
-  set nocompatible
-endif
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(expand("~/.cache/dein"))
@@ -45,6 +42,9 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "gnuplot
   call dein#add('vim-scripts/gnuplot-syntax-highlighting')
+
+  "mathematica
+  call dein#add('rsmenon/vim-mathematica')
 
   "Color
   call dein#add('itchyny/lightline.vim')
