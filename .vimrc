@@ -20,7 +20,6 @@ if dein#load_state(expand("~/.cache/dein"))
   let g:deoplete#enable_at_startup = 1
 
 
->>>>>>> 67c60c2455417fe0040dc537b67c0ec1b2fce997
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
 

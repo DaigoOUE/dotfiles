@@ -24,5 +24,3 @@ rm -rf fonts
 
 #install zinit
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
-
-source ~/.zshrc

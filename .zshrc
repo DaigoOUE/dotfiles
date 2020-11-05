@@ -16,7 +16,7 @@ setopt auto_cd
 
 
 # zplugin
-source $HOME/.zinit/bin/zinit.zsh
+source ~/.zinit/bin/zinit.zsh
 
 # choose prompt
 zinit light sindresorhus/pure
