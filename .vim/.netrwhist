@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Applications/MAMP/htdocs/index.html'
-let g:netrw_dirhist_2='/Users/DaigoOUE/dotfiles/.vim'
-let g:netrw_dirhist_3='/Users/DaigoOUE/Dropbox/public_html26_modified'
-let g:netrw_dirhist_4='/Users/DaigoOUE/Dropbox/public_html26_modified/index'
-let g:netrw_dirhist_5='/Users/DaigoOUE/.dropbox'
-let g:netrw_dirhist_6='/Users/lasie/dotfiles/.vim'
-let g:netrw_dirhist_7='/Users/lasie/dotfiles/.vim/bundle/neobundle.vim'
-let g:netrw_dirhist_8='/Users/DaigoOUE/.bash_sessions'
-let g:netrw_dirhist_9='/Users/daigooue'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/daigooue/.zprezto/modules/syntax-highlighting'
+let g:netrw_dirhist_2='/Users/daigooue/.zprezto/modules'
+let g:netrw_dirhist_1='/Users/daigooue/.zprezto'

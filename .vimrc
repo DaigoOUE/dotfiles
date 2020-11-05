@@ -4,9 +4,6 @@ scriptencoding utf-8
 "-------------------------------
 "dein
 "-------------------------------
-if &compatible
-  set nocompatible
-endif
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(expand("~/.cache/dein"))
@@ -14,8 +11,15 @@ if dein#load_state(expand("~/.cache/dein"))
 
   call dein#add(expand("~/.cache/dein"))
 
-  "コード補完
-  call dein#add('Shougo/neocomplete.vim')
+  "deoplete
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  let g:deoplete#enable_at_startup = 1
+
+
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
 
@@ -47,9 +51,14 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('vim-scripts/gnuplot-syntax-highlighting')
 
   "Color
-  call dein#add('itchyny/lightline.vim')
   call dein#add('nanotech/jellybeans.vim')
   call dein#add('KeyboardFire/hotdog.vim')
+  call dein#add('arcticicestudio/nord-vim')
+
+  "fancy status bar
+  call dein#add('itchyny/lightline.vim')
+  "get the branch name on github
+  call dein#add('tpope/vim-fugitive')
 
   "Autosave
   call dein#add('907th/vim-auto-save')
@@ -60,6 +69,12 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+"
+" deoplete
+"
+let g:python3_host_prog = '/usr/local/opt/python@3.9'
+
 
 "-------------------------------
 "Neosnippet
@@ -97,10 +112,9 @@ let g:tex_conceal=''
 "vimtex setting
 let g:tex_flavor = 'latex'
 let g:vimtex_indent_enabled = 1
-let g:vimtex_latexmk_continuous = 1
 
 "for latexmk
-let g:vimtex_latexmk_enabled = 1
+let g:vimtex_compiler_latexmk = {'callback': 0}
 let g:vimtex_compiler_latexmk = {
 \ 'background' : 0,
 \ 'build_dir' : '',
@@ -210,27 +224,29 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 "-------------------------------
 set laststatus=2
 let g:lightline = {
-        \ 'colorscheme': 'jellybeans',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightlineModified',
-        \   'readonly': 'LightlineReadonly',
-        \   'fugitive': 'LightlineFugitive',
-        \   'filename': 'LightlineFilename',
-        \   'fileformat': 'LightlineFileformat',
-        \   'filetype': 'LightlineFiletype',
-        \   'fileencoding': 'LightlineFileencoding',
-        \   'mode': 'LightlineMode'
-        \ },
-        \ 'component': {
-        \   'readonly': '%{&readonly?"⭤":""}',
-        \ },
-        \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-        \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" } 
-        \ }
+      \ 'colorscheme': 'nord',
+      \ 'mode_map': {'c': 'NORMAL'},
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \           [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'LightlineModified',
+      \   'readonly': 'LightlineReadonly',
+      \   'fugitive': 'LightlineFugitive',
+      \   'filename': 'LightlineFilename',
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'mode': 'LightlineMode',
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+      \ }
 function! LightlineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
@@ -288,8 +304,10 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 "-------------------------------
 "setting
 "-------------------------------
+set shell=zsh
 set number
-colorscheme hybrid
+set relativenumber
+colorscheme nord
 let g:hybrid_use_Xresources = 1 
 syntax on
 filetype plugin indent on
