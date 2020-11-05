@@ -16,7 +16,7 @@ setopt auto_cd
 
 
 # zplugin
-source $HOME/.zplugin/zplugin.zsh
+source $HOME/.zinit/bin/zinit.zsh
 
 # choose prompt
 zinit light sindresorhus/pure
@@ -27,4 +27,3 @@ zinit light zsh-users/zsh-autosuggestions
 
 # enable syntax highlighting
 zinit light zdharma/fast-syntax-highlighting
-
