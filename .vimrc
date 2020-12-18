@@ -35,9 +35,10 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('thinca/vim-quickrun')
 
   "Markdown
+  call dein#add('godlygeek/tabular')
   call dein#add('plasticboy/vim-markdown')
-  call dein#add('previm/previm')
-
+  call dein#add('kannokanno/previm')
+  call dein#add('skanehira/preview-markdown.vim')
 
   "HTML, CSS, Javascript
   call dein#add('mattn/emmet-vim')
@@ -52,7 +53,7 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "mathematica
   call dein#add('rsmenon/vim-mathematica')
-
+  
   "Color
   call dein#add('nanotech/jellybeans.vim')
   call dein#add('KeyboardFire/hotdog.vim')
@@ -134,12 +135,23 @@ let g:vimtex_compiler_latexmk = {
 
 
 "-------------------------------
-"Markdown
+" Markdown
 "-------------------------------
-let g:previm_open_cmd = 'open -a Google\ Chrome'
-let g:vim_markdown_math = 1
-let g:vim_markdown_auto_insert_bullets = 0
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_new_list_item_indent = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
+" preview-markdown
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+let g:preview_markdown_parser = 'glow'
+let g:preview_markdown_vertical = 1
+
+" previm
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+nnoremap <silent> <C-p> :PrevimOpen<CR>
 
 "-------------------------------
 "HTML 5 tags

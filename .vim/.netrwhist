@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/daigooue/.cache/dein/repos/github.com/kannokanno/previm/preview/_'
 let g:netrw_dirhist_3='/Users/daigooue/.zprezto/modules/syntax-highlighting'
 let g:netrw_dirhist_2='/Users/daigooue/.zprezto/modules'
 let g:netrw_dirhist_1='/Users/daigooue/.zprezto'
