@@ -30,6 +30,8 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/vimfiler')
 
+  call dein#add('easymotion/vim-easymotion')
+
   "TeX
   call dein#add('lervag/vimtex')
   call dein#add('thinca/vim-quickrun')
@@ -100,9 +102,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 
 "-------------------------------
@@ -110,7 +109,6 @@ endif
 "-------------------------------
 "Preview
 let g:vimtex_view_general_viewer = 'evince'
-
 let g:tex_conceal=''
 
 "vimtex setting
