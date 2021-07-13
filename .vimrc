@@ -28,7 +28,7 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "ファイル操作
   call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/vimfiler')
+  call dein#add('lambdalisue/fern.vim')
 
   call dein#add('easymotion/vim-easymotion')
 
@@ -320,7 +320,6 @@ set title
 
 set nocompatible
 set backspace=indent,eol,start
-set nowrap
 set ruler
 
 "sudo忘れた時無理やり保存する
@@ -329,3 +328,6 @@ cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 set noshowmode
 "折り返しなし
 set wrap
+
+"to previous tab
+nnoremap gr gT
