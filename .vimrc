@@ -1,4 +1,6 @@
+" vimにutf-8を使ってもらう
 set encoding=utf-8
+".vimrcのエンコーディングはutf-8だよ
 scriptencoding utf-8
 
 "-------------------------------
@@ -17,8 +19,6 @@ if dein#load_state(expand("~/.cache/dein"))
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  let g:deoplete#enable_at_startup = 1
-
 
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
@@ -75,8 +75,8 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#save_state()
 endif
 
+"ファイルタイプを検出し，それに応じてplugin & indentationをonにする
 filetype plugin indent on
-syntax enable
 
 
 "-------------------------------
@@ -328,8 +328,7 @@ set ruler
 "sudo忘れた時無理やり保存する
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
-set noshowmode
-"折り返しなし
+"画面に文字が収まり切らなくなったら折り返して表示してくれる
 set wrap
 
 "to previous tab
