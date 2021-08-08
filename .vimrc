@@ -30,8 +30,6 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('Shougo/unite.vim')
   call dein#add('lambdalisue/fern.vim')
 
-  call dein#add('easymotion/vim-easymotion')
-
   "TeX
   call dein#add('lervag/vimtex')
   call dein#add('thinca/vim-quickrun')
@@ -312,8 +310,6 @@ set shell=zsh
 set number
 set relativenumber
 colorscheme iceberg
-let g:hybrid_use_Xresources = 1 
-filetype plugin indent on
 set background=dark
 set autoindent
 set tabstop=2
