@@ -214,7 +214,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 "-------------------------------
 "lightline
 "-------------------------------
-set laststatus=0 " set 2 to enable lightline.vim
+set laststatus=2 " set 2 to enable lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ 'mode_map': {'c': 'NORMAL'},
