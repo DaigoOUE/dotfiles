@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/daigooue/Documents/projects/PhD/casimir'
+let g:netrw_dirhist_8='/Users/daigooue/Documents/projects/PhD/cerenkov'
+let g:netrw_dirhist_7='/Users/daigooue/Documents/projects/PhD'
+let g:netrw_dirhist_6='/Users/daigooue/Documents/projects/PhD/plasmonics/sca_trans_mat'
+let g:netrw_dirhist_5='/Users/daigooue/Documents/projects/PhD/casimir'
 let g:netrw_dirhist_4='/Users/daigooue/.cache/dein/repos/github.com/kannokanno/previm/preview/_'
 let g:netrw_dirhist_3='/Users/daigooue/.zprezto/modules/syntax-highlighting'
 let g:netrw_dirhist_2='/Users/daigooue/.zprezto/modules'
