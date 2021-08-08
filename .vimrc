@@ -60,6 +60,9 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('arcticicestudio/nord-vim')
   call dein#add('cocopon/iceberg.vim')
 
+  call dein#add('cocopon/colorswatch.vim')
+
+
   "fancy status bar
   call dein#add('itchyny/lightline.vim')
   "get the branch name on github
@@ -199,23 +202,21 @@ vmap <Leader>o <Plug>(openbrowser-open)
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
 "--------------------------------
-"neocomplete.vim
+"deoplete.vim
 "--------------------------------
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
- let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
+" Auto start deoplete package.
+let g:deoplete#enable_at_startup = 1
+" vimtexのオムニ補完をdeopleteから呼び出す
+call deoplete#custom#var('omni', 'input_patterns', {
+    \ 'tex': g:vimtex#re#deoplete
+    \})
 
 "-------------------------------
 "lightline
 "-------------------------------
-set laststatus=2
+set laststatus=0 " set 2 to enable lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'iceberg',
+      \ 'colorscheme': 'nord',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -309,7 +310,7 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 set shell=zsh
 set number
 set relativenumber
-colorscheme iceberg
+colorscheme nord
 set background=dark
 set autoindent
 set tabstop=2
