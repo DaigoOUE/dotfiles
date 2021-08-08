@@ -312,6 +312,7 @@ set number
 set relativenumber
 colorscheme nord
 set background=dark
+syntax enable
 set autoindent
 set tabstop=2
 set shiftwidth=2
