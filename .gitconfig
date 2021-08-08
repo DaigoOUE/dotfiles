@@ -1,10 +1,10 @@
 [user]
-	name = Daigo Oue
+	name = Daigo Oue (cross cap)
 	email = daigo.oue@gmail.com
 [color]
 	ui = auto
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/daigooue/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -12,7 +12,7 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-  template = /Users/daigooue/.stCommitMsg
+	template = /Users/daigooue/.stCommitMsg
 [pull]
   rebase = false
 [filter "lfs"]
