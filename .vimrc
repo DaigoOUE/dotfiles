@@ -56,10 +56,11 @@ if dein#load_state(expand("~/.cache/dein"))
   "mathematica
   call dein#add('rsmenon/vim-mathematica')
   
-  "Color
+  "colorscheme
   call dein#add('nanotech/jellybeans.vim')
   call dein#add('KeyboardFire/hotdog.vim')
   call dein#add('arcticicestudio/nord-vim')
+  call dein#add('cocopon/iceberg.vim')
 
   "fancy status bar
   call dein#add('itchyny/lightline.vim')
@@ -75,11 +76,6 @@ endif
 
 filetype plugin indent on
 syntax enable
-
-"
-" deoplete
-"
-let g:python3_host_prog = '/usr/local/opt/python@3.9'
 
 
 "-------------------------------
@@ -221,7 +217,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 "-------------------------------
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'iceberg',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -286,10 +282,21 @@ function! LightlineMode()
 endfunction
 
 "-------------------------------
-"Unite-outline
+" Unite
 "-------------------------------
+" outline
 let g:unite_split_rule = 'botright' 
 noremap <Space>u :<C-u>Unite<space>-vertical<space>-winwidth=40<space>outline<CR>
+
+
+"-------------------------------
+" Fern
+"-------------------------------
+" show the file tree
+nnoremap <Space>n :Fern . -reveal=% -drawer -toggle -width=40<CR>
+" show hidden files
+let g:fern#default_hidden=1
+
 
 "-------------------------------
 " Auto save
@@ -304,9 +311,8 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 set shell=zsh
 set number
 set relativenumber
-colorscheme nord
+colorscheme iceberg
 let g:hybrid_use_Xresources = 1 
-syntax on
 filetype plugin indent on
 set background=dark
 set autoindent
