@@ -32,7 +32,6 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "TeX
   call dein#add('lervag/vimtex')
-  call dein#add('thinca/vim-quickrun')
 
   "Markdown
   call dein#add('godlygeek/tabular')
@@ -59,9 +58,6 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('KeyboardFire/hotdog.vim')
   call dein#add('arcticicestudio/nord-vim')
   call dein#add('cocopon/iceberg.vim')
-
-  call dein#add('cocopon/colorswatch.vim')
-
 
   "fancy status bar
   call dein#add('itchyny/lightline.vim')
