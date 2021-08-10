@@ -212,7 +212,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 "-------------------------------
 set laststatus=2 " set 2 to enable lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'iceberg',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -307,7 +307,7 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 set shell=zsh
 set number
 set relativenumber
-colorscheme nord
+colorscheme iceberg
 set background=dark
 syntax enable
 set autoindent
