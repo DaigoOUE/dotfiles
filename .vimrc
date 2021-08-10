@@ -276,6 +276,7 @@ function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+
 "-------------------------------
 " Unite
 "-------------------------------
@@ -327,6 +328,9 @@ cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 "画面に文字が収まり切らなくなったら折り返して表示してくれる
 set wrap
+
+"modeを非表示(lightlineをonにしている場合)
+set noshowmode 
 
 "to previous tab
 nnoremap gr gT
