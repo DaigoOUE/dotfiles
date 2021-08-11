@@ -134,6 +134,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_math = 1
 
 " preview-markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -291,7 +292,7 @@ noremap <Space>u :<C-u>Unite<space>-vertical<space>-winwidth=40<space>outline<CR
 " show the file tree
 nnoremap <Space>n :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " show hidden files
-let g:fern#default_hidden=1
+" let g:fern#default_hidden=1
 
 
 "-------------------------------
