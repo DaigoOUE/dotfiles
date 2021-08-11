@@ -39,7 +39,7 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('kannokanno/previm')
   call dein#add('skanehira/preview-markdown.vim')
 
-  "HTML, CSS, Javascript
+  "HTML, CSS, Java script
   call dein#add('mattn/emmet-vim')
   call dein#add('tpope/vim-surround')
   call dein#add('vim-scripts/open-browser.vim')
@@ -50,7 +50,7 @@ if dein#load_state(expand("~/.cache/dein"))
   "gnuplot
   call dein#add('vim-scripts/gnuplot-syntax-highlighting')
 
-  "mathematica
+  "Mathematica
   call dein#add('rsmenon/vim-mathematica')
   
   "colorscheme
@@ -61,11 +61,15 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "fancy status bar
   call dein#add('itchyny/lightline.vim')
-  "get the branch name on github
+  "get the branch name on GitHub
   call dein#add('tpope/vim-fugitive')
 
   "Autosave
   call dein#add('907th/vim-auto-save')
+
+  "spellcheck
+  call dein#add('inkarkat/vim-SpellCheck')
+  call dein#add('inkarkat/vim-ingo-library')
   
   call dein#end()
   call dein#save_state()
@@ -192,10 +196,10 @@ augroup END
 "-------------------------------
 " open-browser.vim 
 "-------------------------------
-"" カーソル下のURLをブラウザで開く
+"" open the URL under the cursor
 nmap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
-" ググる
+" google the word under the cursor
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
 "--------------------------------
@@ -317,15 +321,11 @@ set shiftwidth=2
 set expandtab
 set cursorline
 set mouse=a
-"display title
 set title
 
 set nocompatible
 set backspace=indent,eol,start
 set ruler
-
-"sudo忘れた時無理やり保存する
-cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 "画面に文字が収まり切らなくなったら折り返して表示してくれる
 set wrap
@@ -333,5 +333,15 @@ set wrap
 "modeを非表示(lightlineをonにしている場合)
 set noshowmode 
 
+
+"-------------------------------
+" key mappings
+"-------------------------------
 "to previous tab
 nnoremap gr gT
+
+"sudo忘れた時無理やり保存する
+cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
+
+" toggle the spell checker
+map <F5> :setlocal spell!<CR>
