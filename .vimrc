@@ -344,4 +344,5 @@ nnoremap gr gT
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
 " toggle the spell checker
+set nospell
 map <F5> :setlocal spell!<CR>
