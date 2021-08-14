@@ -316,33 +316,43 @@ colorscheme iceberg
 set background=dark
 syntax enable
 set autoindent
+" <Tab>を押したときのインデント
 set tabstop=2
+" INSERTでの<CR>や
+" NORMALでの>>や<<でのインデント
 set shiftwidth=2
 set expandtab
 set cursorline
 set mouse=a
 set title
 
-set nocompatible
 set backspace=indent,eol,start
 set ruler
 
-"画面に文字が収まり切らなくなったら折り返して表示してくれる
+"画面に文字が収まり切らなくなったら折り返して表示してくれる．
+"嫌ならnowrap
 set wrap
 
 "modeを非表示(lightlineをonにしている場合)
 set noshowmode 
 
+" incremental search
+set incsearch
+
 
 "-------------------------------
 " key mappings
 "-------------------------------
-"to previous tab
+" to previous tab
 nnoremap gr gT
 
-"sudo忘れた時無理やり保存する
+" sudo忘れた時無理やり保存する
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 
-" toggle the spell checker
+" spell checker
 set nospell
 map <F5> :setlocal spell!<CR>
+
+" esc
+inoremap <C-j> <ESC>
+vnoremap <C-j> <ESC>
