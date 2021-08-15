@@ -318,8 +318,8 @@ set relativenumber
 colorscheme iceberg
 set background=dark
 syntax enable
-"set autoindent "現在の行のインデントをキープしてくれる
-set smartindent "いい感じ(C言語のことをベースにしているらしい)にインデントしてくれる
+set autoindent "現在の行のインデントをキープしてくれる
+"set smartindent "いい感じ(C言語のことをベースにしているらしい)にインデントしてくれる
 " <Tab>を押したときのインデント
 set tabstop=2
 " INSERTでの<CR>や
@@ -336,7 +336,7 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 set backspace=indent,eol,start
 set ruler
 
-" warp option slow down you vim
+" wrap option slow down your vim
 set nowrap
 " only wrap at characters given below
 set linebreak
@@ -378,10 +378,10 @@ map <F5> :setlocal spell!<CR>
 inoremap <C-j> <ESC>
 vnoremap <C-j> <ESC>
 
-"indentation
-nnoremap >> >
-nnoremap << <
-
 "undo in the INSERT mode (= <C-w>, <C-u>)
 inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-w>
+
+" intuitive 
+nnoremap j gj
+nnoremap k gk
