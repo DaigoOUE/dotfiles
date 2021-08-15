@@ -215,7 +215,10 @@ call deoplete#custom#var('omni', 'input_patterns', {
 "-------------------------------
 "lightline
 "-------------------------------
-set laststatus=2 " set 2 to enable lightline.vim
+" modeを非表示(lightlineをonにしている場合)
+set noshowmode 
+" set 2 to enable lightline.vim
+set laststatus=2 
 let g:lightline = {
       \ 'colorscheme': 'iceberg',
       \ 'mode_map': {'c': 'NORMAL'},
@@ -315,7 +318,8 @@ set relativenumber
 colorscheme iceberg
 set background=dark
 syntax enable
-set autoindent
+"set autoindent "現在の行のインデントをキープしてくれる
+set smartindent "いい感じ(C言語のことをベースにしているらしい)にインデントしてくれる
 " <Tab>を押したときのインデント
 set tabstop=2
 " INSERTでの<CR>や
@@ -326,18 +330,32 @@ set cursorline
 set mouse=a
 set title
 
+" following motion can be used across two lines
+set whichwrap+=h,l,<,>,[,],b,s,~
+" enable backspace in the INSERT mode
 set backspace=indent,eol,start
 set ruler
 
-"画面に文字が収まり切らなくなったら折り返して表示してくれる．
-"嫌ならnowrap
-set wrap
+" warp option slow down you vim
+set nowrap
+" only wrap at characters given below
+set linebreak
+set breakat=\ \	;:,!?
+" indent for wrapped lines
+set breakindent
 
-"modeを非表示(lightlineをonにしている場合)
-set noshowmode 
+" keep the cursor position when use <C-f> etc.
+set nostartofline
 
+"-------------------------------
+" search
+"-------------------------------
 " incremental search
 set incsearch
+" Ignore the case of normal letters.
+set ignorecase
+" If the search pattern contains upper case characters, override ignorecase option.
+set smartcase
 
 
 "-------------------------------
@@ -345,6 +363,9 @@ set incsearch
 "-------------------------------
 " to previous tab
 nnoremap gr gT
+" move a tab
+nnoremap <Tab>l :+tabmove<CR>
+nnoremap <Tab>h :-tabmove<CR>
 
 " sudo忘れた時無理やり保存する
 cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
@@ -356,3 +377,11 @@ map <F5> :setlocal spell!<CR>
 " esc
 inoremap <C-j> <ESC>
 vnoremap <C-j> <ESC>
+
+"indentation
+nnoremap >> >
+nnoremap << <
+
+"undo in the INSERT mode (= <C-w>, <C-u>)
+inoremap <C-w> <C-g>u<C-w>
+inoremap <C-u> <C-g>u<C-w>
