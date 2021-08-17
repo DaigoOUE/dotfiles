@@ -383,8 +383,8 @@ inoremap <C-w> <C-g>u<C-w>
 inoremap <C-u> <C-g>u<C-w>
 
 " intuitive 
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
 
 "terminal 
 noremap <Space>t :term<Space>++rows=15<CR>
