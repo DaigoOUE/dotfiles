@@ -374,9 +374,8 @@ cnoremap w!! w !sudo tee > /dev/null %<CR> :e!<CR>
 set nospell
 map <F5> :setlocal spell!<CR>
 
-"undo in the INSERT mode (= <C-w>, <C-u>)
-inoremap <C-w> <C-g>u<C-w>
-inoremap <C-u> <C-g>u<C-w>
+" esc
+noremap <C-j> <ESC>
 
 "terminal 
 noremap <Space>t :term<Space>++rows=15<CR>
