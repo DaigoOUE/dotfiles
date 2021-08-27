@@ -375,7 +375,15 @@ set nospell
 map <F5> :setlocal spell!<CR>
 
 " esc
+inoremap <C-j> <ESC>
+vnoremap <C-j> <ESC>
 noremap <C-j> <ESC>
+
+" indent
+nnoremap < <<
+nnoremap > >>
+xnoremap < <<
+xnoremap > >>
 
 "terminal 
 noremap <Space>t :term<Space>++rows=15<CR>
