@@ -4,16 +4,22 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="~/tools:$PATH"
 
 
+# alias
+## ls w/ color
+alias ls='ls -G'
+
+## git
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+
+
 # ls after cd
 chpwd() { ls -G }
-
-# ls w/ color
-alias ls='ls -G'
 
 
 #omit cd
 setopt auto_cd
-
 
 # zplugin
 source ~/.zinit/bin/zinit.zsh

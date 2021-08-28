@@ -380,8 +380,8 @@ vnoremap <C-j> <ESC>
 noremap <C-j> <ESC>
 
 " indent
-nnoremap < <<
-nnoremap > >>
+"nnoremap < <<
+"nnoremap > >>
 xnoremap < <<
 xnoremap > >>
 
