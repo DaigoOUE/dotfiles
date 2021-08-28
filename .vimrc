@@ -32,6 +32,10 @@ if dein#load_state(expand("~/.cache/dein"))
   "ファイル操作
   call dein#add('Shougo/unite.vim')
   call dein#add('lambdalisue/fern.vim')
+  call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
+  call dein#add('lambdalisue/nerdfont.vim')
+  call dein#add('csch0/vim-startify-renderer-nerdfont')
+
 
   "TeX
   call dein#add('lervag/vimtex')
@@ -301,6 +305,7 @@ noremap <Space>u :<C-u>Unite<space>-vertical<space>-winwidth=40<space>outline<CR
 nnoremap <Space>n :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " show hidden files
 " let g:fern#default_hidden=1
+let g:fern#renderer="nerdfont"
 
 
 "-------------------------------
