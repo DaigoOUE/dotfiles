@@ -23,6 +23,9 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
 
+  " brackets completion
+  call dein#add('jiangmiao/auto-pairs')
+
   "非同期実行
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
@@ -66,11 +69,8 @@ if dein#load_state(expand("~/.cache/dein"))
 
   "Autosave
   call dein#add('907th/vim-auto-save')
-
-  "spellcheck
-  call dein#add('inkarkat/vim-SpellCheck')
-  call dein#add('inkarkat/vim-ingo-library')
   
+ 
   call dein#end()
   call dein#save_state()
 endif
@@ -149,6 +149,7 @@ let g:preview_markdown_vertical = 1
 let g:previm_open_cmd = 'open -a Google\ Chrome'
 let g:previm_custom_css_path = '~/.cache/dein/repos/github.com/kannokanno/previm/preview/_/css/md.css'
 nnoremap <silent> <C-p> :PrevimOpen<CR>
+
 
 "-------------------------------
 "HTML 5 tags
