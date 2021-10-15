@@ -23,9 +23,6 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
 
-  " brackets completion
-  call dein#add('jiangmiao/auto-pairs')
-
   "非同期実行
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
@@ -109,7 +106,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "TeX
 "-------------------------------
 "Preview
-let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:tex_conceal=''
 
 "vimtex setting
