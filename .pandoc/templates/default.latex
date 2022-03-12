@@ -5,7 +5,7 @@ $if(colorlinks)$
 $endif$$if(dir)$$if(latex-dir-rtl)$
 \PassOptionsToPackage{RTLdocument}{bidi}
 $endif$$endif$%
-\documentclass[uplatex]{jsarticle}
+\documentclass[aps,pra,preprint]{revtex4-2}
 \usepackage{here}
 $if(beamer)$
 $if(background-image)$
@@ -36,7 +36,6 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
   \usepackage[utf8]{inputenc}
