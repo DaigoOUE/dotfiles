@@ -389,4 +389,4 @@ xnoremap < <<
 xnoremap > >>
 
 "terminal 
-noremap <Space>t :term<Space>++rows=15<CR>
+noremap <Space>t :term<Space>++rows=25<CR>
