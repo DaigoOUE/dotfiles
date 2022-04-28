@@ -339,11 +339,11 @@ set whichwrap+=h,l,<,>,[,],b,s,~
 set backspace=indent,eol,start
 set ruler
 
-" wrap option slow down your vim
-set nowrap
+" note that wrap option slow down your vim
+set wrap
 " only wrap at characters given below
 set linebreak
-set breakat=\ \	;:,!?
+set breakat=\ \	;:,.!?
 " indent for wrapped lines
 set breakindent
 
