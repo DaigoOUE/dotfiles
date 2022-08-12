@@ -10,4 +10,4 @@ ln -s ~/dotfiles/.gitignore_global ~/.gitignore_global
 ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.pandoc ~/.pandoc
-ln -s ~/dotfiles/.config ~/.config
+ln -s ~/dotfiles/.config/zathura ~/.config/zathura
