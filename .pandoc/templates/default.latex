@@ -402,4 +402,5 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+\bibliography{bib/all} %remember to put the symbolic link
 \end{document}
