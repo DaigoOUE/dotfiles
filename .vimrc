@@ -106,7 +106,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "TeX
 "-------------------------------
 "Preview
-let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_viewer = 'evince'
 let g:tex_conceal=''
 
 "vimtex setting
