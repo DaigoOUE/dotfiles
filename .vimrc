@@ -76,6 +76,9 @@ if dein#load_state(expand("~/.cache/dein"))
   call dein#save_state()
 endif
 
+" call dein#add(...)をコメントアウトするとプラグイン削除
+call map(dein#check_clean(), "delete(v:val, 'rf')")
+
 "ファイルタイプを検出し，それに応じてplugin & indentationをonにする
 filetype plugin indent on
 
@@ -106,7 +109,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "TeX
 "-------------------------------
 "Preview
-let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_view_general_viewer = 'zathura'
 let g:tex_conceal=''
 
 "vimtex setting
