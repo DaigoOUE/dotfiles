@@ -3,6 +3,8 @@ sh ./installer/install_font.sh
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+brew install zsh
+
 # install vim
 brew install vim
 sh ./installer/install_dein.sh
