@@ -3,6 +3,8 @@ set encoding=utf-8
 ".vimrcのエンコーディングはutf-8だよ
 scriptencoding utf-8
 
+language C
+
 "-------------------------------
 "dein
 "-------------------------------
