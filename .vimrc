@@ -22,7 +22,6 @@ if dein#load_state(expand("~/.cache/dein"))
 
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
-
   "非同期実行
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
@@ -395,3 +394,10 @@ xnoremap > >>
 
 "terminal 
 noremap <Space>t :term<Space>++rows=25<CR>
+
+" quickfix (cwindow) just after vimgrep
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
