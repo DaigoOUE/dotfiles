@@ -11,3 +11,4 @@ ln -s ~/dotfiles/.latexmkrc ~/.latexmkrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.pandoc ~/.pandoc
 ln -s ~/dotfiles/.config/zathura ~/.config/zathura
+ln -s ~/dotfiles/tools/.tilde-switch ~/.tilde-switch
