@@ -13,6 +13,7 @@ alias gc='git commit'
 alias gp='git push'
 alias gst='git status'
 alias gd='git diff'
+alias gpl='git pull'
 
 
 # ls after cd
