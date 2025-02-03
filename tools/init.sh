@@ -16,6 +16,8 @@ open ./colorscheme/iceberg.itermcolors
 brew tap zegervdv/zathura
 brew install zathura
 brew install zathura-pdf-poppller
+mkdir -p $(brew --prefix zathura)/lib/zathura
+ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
 
 # latex (takes long time so execute in the end)
 sh ./installer/install_mactex.sh
