@@ -12,6 +12,10 @@ pip3 install --break-system-packages pynvim # required for deoplete
 
 open ./colorscheme/iceberg.itermcolors
 
+# zathura
+brew tap zegervdv/zathura
+brew install zathura
+brew install zathura-pdf-poppller
+
 # latex (takes long time so execute in the end)
 sh ./installer/install_mactex.sh
-
