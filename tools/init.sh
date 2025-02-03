@@ -19,3 +19,5 @@ brew install zathura-pdf-poppller
 
 # latex (takes long time so execute in the end)
 sh ./installer/install_mactex.sh
+
+brew cleanup
