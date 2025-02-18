@@ -3,6 +3,8 @@ export PATH="/usr/local/opt/python@3.10/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/tools:$PATH"
 
+export LANG="ja_JP.UTF-8"
+
 # alias
 ## ls w/ color
 alias ls='ls -G'
