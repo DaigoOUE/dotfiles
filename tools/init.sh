@@ -5,6 +5,8 @@ sh ./installer/install_font.sh
 
 brew install zsh
 
+brew install gh
+
 # install vim
 brew install vim
 sh ./installer/install_dein.sh
