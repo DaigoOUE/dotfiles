@@ -5,6 +5,7 @@ scriptencoding utf-8
 
 language C
 
+
 "-------------------------------
 "dein
 "-------------------------------
@@ -322,8 +323,9 @@ let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 set shell=zsh
 set number
 set relativenumber
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none 
+set termguicolors
+autocmd ColorScheme * highlight Normal cterm=NONE ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight LineNr cterm=NONE ctermbg=NONE guibg=NONE
 colorscheme iceberg
 set background=dark
 syntax enable
