@@ -337,7 +337,7 @@ set tabstop=2
 " NORMALでの>>や<<でのインデント
 set shiftwidth=2
 set expandtab
-set nocursorline
+set cursorline
 set mouse=a
 set title
 
