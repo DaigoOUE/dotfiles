@@ -337,9 +337,12 @@ set tabstop=2
 " NORMALでの>>や<<でのインデント
 set shiftwidth=2
 set expandtab
-set cursorline
 set mouse=a
 set title
+
+" highligh the current line numer 
+set cursorline
+hi clear CursorLine
 
 " following motion can be used across two lines
 set whichwrap+=h,l,<,>,[,],b,s,~
