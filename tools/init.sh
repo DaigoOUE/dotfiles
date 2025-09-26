@@ -9,7 +9,7 @@ brew install gh
 
 # install vim
 brew install vim
-sh ./installer/install_dein.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
 pip3 install --break-system-packages pynvim # required for deoplete
 
 open ./colorscheme/iceberg.itermcolors
