@@ -104,7 +104,9 @@ require("lazy").setup({
 
   -- その他
   { "cocopon/iceberg.vim" },
-  { "itchyny/lightline.vim" },
+  { "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
   { "tpope/vim-fugitive" },
   { "pocco81/auto-save.nvim" }
 })
@@ -155,19 +157,11 @@ map("n", "<Leader>o", "<Plug>(openbrowser-open)")
 map("v", "<Leader>o", "<Plug>(openbrowser-open)")
 map("n", "<Leader>g", ":OpenBrowserSearch <C-r><C-w><CR>")
 
--- lightline
-vim.opt.showmode = false
-vim.opt.laststatus = 2
-vim.g.lightline = {
-  colorscheme = "iceberg",
-  active = {
-    left = { { "mode", "paste" }, { "gitbranch", "readonly", "filename", "modified" } },
-  },
-  component_function = {
-    gitbranch = "FugitiveHead",
-  },
+--lualine
+require('lualine').setup {
+  options = { theme = "iceberg_dark" },
+  options = { section_separators = '', component_separators = '' }
 }
-
 
 -- ===============================
 -- その他の設定
