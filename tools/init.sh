@@ -2,12 +2,14 @@ sh ./installer/install_font.sh
 
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/hoge/.zprofile
+eval $(/opt/homebrew/bin/brew shellenv)
 
 brew install zsh
 
 brew install gh
 
-# install vim
+# install nvim
 brew install vim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
 pip3 install --break-system-packages pynvim # required for deoplete
