@@ -57,6 +57,7 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   command = "lwindow",
 })
 
+
 -- ===============================
 -- プラグイン管理 (lazy.nvim)
 -- ===============================
@@ -172,3 +173,28 @@ vim.g.lightline = {
 -- その他の設定
 -- ===============================
 vim.cmd.colorscheme("iceberg")
+
+
+-- ===============================
+-- terminal mode
+-- ===============================
+-- key mapping
+-- **move between two windows**
+map("t", "<C-w>l", "<Cmd>wincmd l<CR>")
+map("t", "<C-w>h", "<Cmd>wincmd h<CR>")
+map("t", "<C-w>j", "<Cmd>wincmd j<CR>")
+map("t", "<C-w>k", "<Cmd>wincmd k<CR>")
+map("t", "<C-w>w", "<Cmd>wincmd w<CR>")
+map("t", "<C-w>b", "<Cmd>wincmd b<CR>")
+
+-- close the window
+map("t", "<C-w>q", "<Cmd>wincmd q<CR>")
+
+-- from terminal-job to terminal-normal
+map("t", "<ESC>", "<C-\\><C-n>")
+map("t", "<C-j>", "<C-\\><C-n>")
+
+-- do not show `[process exited 0]`
+vim.cmd([[
+  autocmd TermClose * if !v:event.status | execute "bdelete! " . expand("<abuf>") | endif
+]])
