@@ -10,9 +10,7 @@ brew install zsh
 brew install gh
 
 # install nvim
-brew install vim
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh)"
-pip3 install --break-system-packages pynvim # required for deoplete
+brew install neovim
 
 open ./colorscheme/iceberg.itermcolors
 
