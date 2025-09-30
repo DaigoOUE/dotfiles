@@ -38,7 +38,7 @@ map("n", "<F5>", ":setlocal spell!<CR>")
 map("i", "<C-j>", "<ESC>")
 map("v", "<C-j>", "<ESC>")
 map("n", "<C-j>", "<ESC>")
-map("n", "<Space>t", ":term<CR>")
+map("n", "<Space>t", "<Cmd>wincmd n | terminal<CR>")
 vim.cmd[[
 autocmd TermOpen * :startinsert
 ]]
