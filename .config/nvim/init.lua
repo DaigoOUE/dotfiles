@@ -43,6 +43,7 @@ vim.cmd[[
 autocmd TermOpen * :startinsert
 ]]
 map("n", "<Space>n", ":Fern . -reveal=% -drawer -toggle -width=40<CR>")
+map("n", "<ESC>", "<Cmd>nohlsearch<CR>")
 
 -- quickfix window
 vim.api.nvim_create_augroup("myvimrc", { clear = true })
