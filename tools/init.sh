@@ -9,10 +9,10 @@ brew install zsh
 
 brew install gh
 
+brew install hugo
+
 # install nvim
 brew install neovim
-
-open ./colorscheme/iceberg.itermcolors
 
 # zathura
 brew tap zegervdv/zathura
